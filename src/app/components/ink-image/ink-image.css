@@ -1,0 +1,46 @@
+.ink-image{
+  overflow: hidden;
+  position: relative;
+}
+
+.ink-image.is-active .ink-image-img {
+  opacity: 1;
+}
+
+.ink-image.is-active::after {
+  animation: ink-transition 2s steps(39) 0.5s forwards;
+}
+
+.ink-image::after{
+  background-image: url('../../../../public/inktransition.webp');
+  background-size: 100% 100%;
+  content: '';
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-1.25%);
+  width: 4000%;
+  border-radius: 50px;
+}
+
+.ink-image-img{
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  width: 100%;
+}
+
+@keyframes ink-transition {
+  0% {
+    transform: translateX(-1.25%);
+  }
+  99% {
+    transform: translateX(-98.75%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-98.75%);
+    opacity: 0;
+  }
+}
