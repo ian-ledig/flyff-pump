@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 import './random-text.css';
 
 const words = [
-  'website for your business?',
-  'custom software?',
-  'mobile application for IOS and Android?',
+  'Dungeon map?',
+  'Farm area?',
+  'custom map?',
 ];
 
 const RandomTextComponent: React.FC = () => {
@@ -49,7 +49,7 @@ const RandomTextComponent: React.FC = () => {
 
   return (
     <>
-      Need a{' '}
+      Need a new Flyff{' '}
       <span className={`fade-text ${isFadingOut ? 'fade-out' : ''}`}>
         {part}_
       </span>
