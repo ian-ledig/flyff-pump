@@ -6,7 +6,6 @@ import {
   IoHome,
   IoInformationCircle,
   IoBookmark,
-  IoCodeSlash,
   IoMailOpen,
 } from 'react-icons/io5';
 import ThemeSwitch from '../theme-switch/theme-switch';
@@ -41,7 +40,7 @@ const NavigationBarComponent: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll<HTMLElement>(
-        '#home, #collaboration, #skill, #project, #contact'
+        '#home, #collaboration, #map, #contact'
       );
       let currentSection = 'home';
 
@@ -99,19 +98,11 @@ const NavigationBarComponent: React.FC = () => {
           </a>
           <div className="navigation-separator">|</div>
           <a
-            onClick={(e) => handleLinkClick(e, 'skill')}
-            className={`navigation-item font-heavy ${activeSection === 'skill' ? 'active' : ''}`}
+            onClick={(e) => handleLinkClick(e, 'map')}
+            className={`navigation-item font-heavy ${activeSection === 'map' ? 'active' : ''}`}
             href=""
           >
-            Skills
-          </a>
-          <div className="navigation-separator">|</div>
-          <a
-            onClick={(e) => handleLinkClick(e, 'project')}
-            className={`navigation-item font-heavy ${activeSection === 'project' ? 'active' : ''}`}
-            href=""
-          >
-            Projects
+            Maps
           </a>
           <div className="navigation-separator">|</div>
         </div>
@@ -122,7 +113,7 @@ const NavigationBarComponent: React.FC = () => {
             className="navigation-item button-1 font-heavy"
             href=""
           >
-            Contact
+            Discord
           </a>
         </div>
         <div className="navigation-bar-small">
@@ -143,20 +134,12 @@ const NavigationBarComponent: React.FC = () => {
             <div className="text-xs">About</div>
           </a>
           <a
-            onClick={(e) => handleLinkClick(e, 'skill')}
-            className={`navigation-item font-heavy ${activeSection === 'skill' ? 'active' : ''}`}
+            onClick={(e) => handleLinkClick(e, 'map')}
+            className={`navigation-item font-heavy ${activeSection === 'map' ? 'active' : ''}`}
             href=""
           >
             <IoBookmark size={20} className="mt-2" />
-            <div className="text-xs">Skills</div>
-          </a>
-          <a
-            onClick={(e) => handleLinkClick(e, 'project')}
-            className={`navigation-item font-heavy ${activeSection === 'project' ? 'active' : ''}`}
-            href=""
-          >
-            <IoCodeSlash size={20} className="mt-2" />
-            <div className="text-xs">Projects</div>
+            <div className="text-xs">Maps</div>
           </a>
           <a
             onClick={(e) => handleLinkClick(e, 'contact')}
@@ -167,34 +150,6 @@ const NavigationBarComponent: React.FC = () => {
             <div className="text-xs">Contact</div>
           </a>
           <ThemeSwitch />
-          <a
-            href="https://github.com/ian-ledig"
-            target="_blank"
-            className="self-center"
-            rel="noreferrer"
-          >
-            <Image
-              src="/github.webp"
-              alt="Github logo"
-              width={25}
-              height={0}
-              priority
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ian-ledig/"
-            target="_blank"
-            className="self-center mr-3"
-            rel="noreferrer"
-          >
-            <Image
-              src="/linkedin.webp"
-              alt="Linkedin logo"
-              width={25}
-              height={0}
-              priority
-            />
-          </a>
         </div>
       </nav>
     </>

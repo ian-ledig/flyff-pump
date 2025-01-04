@@ -98,7 +98,7 @@ const ContactComponent: React.FC = () => {
           </form>
           </div>
         </div>
-        <div className="contact-container contact-container-small">
+        <section className="contact-container contact-container-small" id='discord'>
           <div className="contact-card">
             <div className="subtitle-1 text-white">Discord</div>
             <div className="contact-card-form font-thin">
@@ -110,7 +110,7 @@ const ContactComponent: React.FC = () => {
               <div>pacito2</div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
     </>
   );
