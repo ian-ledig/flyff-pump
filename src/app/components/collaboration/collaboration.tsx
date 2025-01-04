@@ -39,60 +39,6 @@ const CollaborationComponent: React.FC = () => {
             height={0}
           />
         </a>
-        <a href="https://airfrance.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/airfrance.webp"
-            alt="Air France logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://probtp.com/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/probtp.webp"
-            alt="Pro BTP logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://cawe.com/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/cawe.webp"
-            alt="Cawe logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://arte.tv/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/arte.webp"
-            alt="Arte logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://info-retraite.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/gip.webp"
-            alt="Info retraite logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://agirc-arrco.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/agircarrco.webp"
-            alt="Agirc-arrco logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
         {/* second */}
         <div>
           <Image
@@ -103,7 +49,11 @@ const CollaborationComponent: React.FC = () => {
             height={0}
           />
         </div>
-        <div>
+        <a
+          href="https://forsaken-kingdom.com/"
+          target="_blank"
+          rel="noreferrer"
+        >
           <Image
             src="/collaboration/forsakenflyff.webp"
             alt="Forsaken Kindgdom logo"
@@ -111,65 +61,11 @@ const CollaborationComponent: React.FC = () => {
             width={200}
             height={0}
           />
-        </div>
+        </a>
         <a href="https://moonflyff.fr/" target="_blank" rel="noreferrer">
           <Image
             src="/collaboration/moonflyff.webp"
             alt="Moon Flyff logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://airfrance.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/airfrance.webp"
-            alt="Air France logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://probtp.com/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/probtp.webp"
-            alt="Pro BTP logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://cawe.com/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/cawe.webp"
-            alt="Cawe logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://arte.tv/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/arte.webp"
-            alt="Arte logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://info-retraite.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/gip.webp"
-            alt="Info retraite logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        <a href="https://agirc-arrco.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/agircarrco.webp"
-            alt="Agirc-arrco logo"
             loading="lazy"
             width={300}
             height={0}
