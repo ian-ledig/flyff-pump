@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { IoLogoDiscord } from "react-icons/io5";
 import './contact.css';
 
 const ContactComponent: React.FC = () => {
@@ -41,9 +42,10 @@ const ContactComponent: React.FC = () => {
     <>
       <h2 className="title title-1 font-black text-center">Contact me_</h2>
       <div className="contact">
-        <div className="contact-card">
-          <div className="subtitle-1 text-white">Get in touch with me</div>
-          <form onSubmit={handleSubmit} className="contact-card-form">
+        <div className="contact-container">
+          <div className="contact-card">
+            <div className="subtitle-1 text-white">Contact Form</div>
+            <form onSubmit={handleSubmit} className="contact-card-form">
             <div>
               <label className="mb-0.5" htmlFor="email">
                 Email
@@ -94,6 +96,20 @@ const ContactComponent: React.FC = () => {
               </button>
             </div>
           </form>
+          </div>
+        </div>
+        <div className="contact-container contact-container-small">
+          <div className="contact-card">
+            <div className="subtitle-1 text-white">Discord</div>
+            <div className="contact-card-form font-thin">
+              <IoLogoDiscord
+                size={35}
+                className="mt-3.5"
+                style={{ color: 'var(--secondary)' }}
+              />
+              <div>pacito2</div>
+            </div>
+          </div>
         </div>
       </div>
     </>

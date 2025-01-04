@@ -118,34 +118,6 @@ const NavigationBarComponent: React.FC = () => {
         <div className="navigation-bar-links">
           <ThemeSwitch />
           <a
-            href="https://github.com/ian-ledig"
-            target="_blank"
-            className="self-center"
-            rel="noreferrer"
-          >
-            <Image
-              src="/github.webp"
-              alt="Github logo"
-              width={25}
-              height={0}
-              priority
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/ian-ledig/"
-            target="_blank"
-            className="self-center mr-3"
-            rel="noreferrer"
-          >
-            <Image
-              src="/linkedin.webp"
-              alt="Linkedin logo"
-              width={25}
-              height={0}
-              priority
-            />
-          </a>
-          <a
             onClick={(e) => handleLinkClick(e, 'contact')}
             className="navigation-item button-1 font-heavy"
             href=""

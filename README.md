@@ -1,8 +1,6 @@
-# 💻 Pump Porfolio
+# 💻 Pump Porfolio Flyff
 
-Welcome to my open-source portfolio! This repository showcases my journey as a developer, featuring projects that highlight my skills in frontend and backend.
-
-You can check the result on [my website](https://ian-ledig.com/).
+Welcome to my open-source portfolio for Flyff! This repository showcases my new maps.
 
 ---
 
