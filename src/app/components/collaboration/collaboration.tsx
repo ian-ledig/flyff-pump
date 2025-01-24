@@ -1,76 +1,34 @@
 'use client';
 
 import React from 'react';
-import Image from 'next/image';
+import { EmblaOptionsType } from 'embla-carousel';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import './collaboration.css';
 
-const CollaborationComponent: React.FC = () => {
+type PropType = {
+  slides: number[];
+  options?: EmblaOptionsType;
+};
+
+const CollaborationComponent: React.FC<PropType> = (props) => {
+  const { slides, options } = props;
+  const autoplay = Autoplay({ delay: 3000, stopOnInteraction: false });
+  const [emblaRef] = useEmblaCarousel(options, [autoplay]);
+
   return (
-    <div className="collaboration">
-      <div className="collaboration-items">
-        <div>
-          <Image
-            src="/collaboration/alysiaonline.webp"
-            alt="Alysia Online logo"
-            loading="lazy"
-            width={200}
-            height={0}
-          />
+    <div className="embla">
+      <div className="embla__viewport" ref={emblaRef}>
+        <div className="embla__container">
+          {slides.map((index) => (
+            <div className="embla__slide" key={index}>
+              <img
+                src={`collaboration/${index}.webp`}
+                alt="Your alt text"
+              />
+            </div>
+          ))}
         </div>
-        <a
-          href="https://forsaken-kingdom.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image
-            src="/collaboration/forsakenflyff.webp"
-            alt="Forsaken Kindgdom logo"
-            loading="lazy"
-            width={200}
-            height={0}
-          />
-        </a>
-        <a href="https://moonflyff.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/moonflyff.webp"
-            alt="Moon Flyff logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
-        {/* second */}
-        <div>
-          <Image
-            src="/collaboration/alysiaonline.webp"
-            alt="Alysia Online logo"
-            loading="lazy"
-            width={200}
-            height={0}
-          />
-        </div>
-        <a
-          href="https://forsaken-kingdom.com/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <Image
-            src="/collaboration/forsakenflyff.webp"
-            alt="Forsaken Kindgdom logo"
-            loading="lazy"
-            width={200}
-            height={0}
-          />
-        </a>
-        <a href="https://moonflyff.fr/" target="_blank" rel="noreferrer">
-          <Image
-            src="/collaboration/moonflyff.webp"
-            alt="Moon Flyff logo"
-            loading="lazy"
-            width={300}
-            height={0}
-          />
-        </a>
       </div>
     </div>
   );

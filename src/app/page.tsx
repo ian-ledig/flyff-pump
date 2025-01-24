@@ -11,8 +11,6 @@ import { EmblaOptionsType } from 'embla-carousel';
 import './home.css';
 
 const OPTIONS: EmblaOptionsType = { loop: true };
-const SLIDE_COUNT = 5;
-const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 export default function Home() {
   return (
@@ -61,7 +59,7 @@ export default function Home() {
         </section>
         <section id="collaboration" aria-labelledby="collaboration-title">
           <h2 className="title title-1 font-black">They trusted me_</h2>
-          <CollaborationComponent />
+          <CollaborationComponent slides={Array.from(Array(4).keys())} options={OPTIONS} />
           <div className="title-2 text-center font-thin mt-3 mb-20">
             Will you be next?
           </div>
@@ -75,7 +73,7 @@ export default function Home() {
               price={150} 
               count={0} 
               maxCount={3} 
-              slides={SLIDES} 
+              slides={Array.from(Array(5).keys())} 
               options={OPTIONS} 
             />
             <MapComponent 
@@ -84,7 +82,7 @@ export default function Home() {
               price={150} 
               count={0} 
               maxCount={3} 
-              slides={SLIDES} 
+              slides={Array.from(Array(5).keys())} 
               options={OPTIONS} 
             />
           </div>
