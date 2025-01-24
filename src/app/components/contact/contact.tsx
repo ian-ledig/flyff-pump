@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { IoLogoDiscord } from "react-icons/io5";
+import { IoLogoDiscord } from 'react-icons/io5';
 import './contact.css';
 
 const ContactComponent: React.FC = () => {
@@ -46,59 +46,62 @@ const ContactComponent: React.FC = () => {
           <div className="contact-card">
             <div className="subtitle-1 text-white">Contact Form</div>
             <form onSubmit={handleSubmit} className="contact-card-form">
-            <div>
-              <label className="mb-0.5" htmlFor="email">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="text"
-                className="textbox w-11/12"
-                placeholder=""
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="mb-0.5" htmlFor="subject">
-                Subject
-              </label>
-              <input
-                id="subject"
-                name="subject"
-                type="text"
-                className="textbox w-11/12"
-                placeholder=""
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <label className="mb-0.5" htmlFor="message">
-                Your message
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                className="textbox w-11/12 h-40"
-                placeholder=""
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              />
-            </div>
-            <div>
-              <button type="submit" className="button-1 font-heavy">
-                Send
-              </button>
-            </div>
-          </form>
+              <div>
+                <label className="mb-0.5" htmlFor="email">
+                  Email
+                </label>
+                <input
+                  id="email"
+                  name="email"
+                  type="text"
+                  className="textbox w-11/12"
+                  placeholder=""
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <label className="mb-0.5" htmlFor="subject">
+                  Subject
+                </label>
+                <input
+                  id="subject"
+                  name="subject"
+                  type="text"
+                  className="textbox w-11/12"
+                  placeholder=""
+                  value={subject}
+                  onChange={(e) => setSubject(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <label className="mb-0.5" htmlFor="message">
+                  Your message
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  className="textbox w-11/12 h-40"
+                  placeholder=""
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                />
+              </div>
+              <div>
+                <button type="submit" className="button-1 font-heavy">
+                  Send
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-        <section className="contact-container contact-container-small" id='discord'>
+        <section
+          className="contact-container contact-container-small"
+          id="discord"
+        >
           <div className="contact-card">
             <div className="subtitle-1 text-white">Discord</div>
             <div className="contact-card-form font-thin">

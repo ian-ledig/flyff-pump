@@ -4,20 +4,22 @@ import NavigationBarComponent from './components/navigation-bar/navigation-bar';
 import RandomTextComponent from './components/random-text/random-text';
 import InkImageComponent from './components/ink-image/ink-image';
 import CollaborationComponent from './components/collaboration/collaboration';
-import ProjectCardComponent from './components/project-card/project-card';
+import MapComponent from './components/map/map';
 import ContactComponent from './components/contact/contact';
 import { FaMapMarkerAlt } from 'react-icons/fa';
+import { EmblaOptionsType } from 'embla-carousel';
 import './home.css';
+
+const OPTIONS: EmblaOptionsType = { loop: true };
+const SLIDE_COUNT = 5;
+const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>Pacito2&apos;s Flyff Maps</title>
-        <meta
-          name="description"
-          content="Showcasing my Flyff Maps for sale."
-        />
+        <meta name="description" content="Showcasing my Flyff Maps for sale." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <header>
@@ -52,9 +54,7 @@ export default function Home() {
                   className="mb-3.5 mr-1"
                   style={{ color: 'var(--secondary)' }}
                 />
-                <div className="subtitle-3 mb-3 font-regular">
-                  France
-                </div>
+                <div className="subtitle-3 mb-3 font-regular">France</div>
               </div>
             </div>
           </aside>
@@ -69,109 +69,23 @@ export default function Home() {
         <section id="map" aria-labelledby="maps-title">
           <h2 className="title title-1 font-black">Maps_</h2>
           <div className="map">
-            <ProjectCardComponent
-              src="/project/airfrance.webp"
-              title="Airport Flight Consultation"
-              description="Development of a flight, passenger, baggage consultation application for airport agents. Including architecture, development, testing, deployment and production release on the cloud."
-              technologies={['Angular', 'Java', 'Spring', 'SQL', 'Azure']}
-              links={[]}
+            <MapComponent 
+              name="Dungeon Jungle Temple" 
+              description='A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for up to 6 boss.' 
+              price={150} 
+              count={0} 
+              maxCount={3} 
+              slides={SLIDES} 
+              options={OPTIONS} 
             />
-            <ProjectCardComponent
-              src="/project/moncompteretraite.webp"
-              title="French Retirement Application"
-              description="Development of “Mon Compte Retraite” mobile application for iOS and Android, ensured communication security, production monitoring and designed batch processes."
-              technologies={['Angular', 'Ionic', 'Java', 'Spring', 'SQL']}
-              links={[
-                {
-                  href: 'https://play.google.com/store/apps/details?id=fr.agircarrco.smartretraite',
-                  image: '/project/icon/android.webp',
-                },
-                {
-                  href: 'https://apps.apple.com/fr/app/mon-compte-retraite/id1176066236',
-                  image: '/project/icon/apple.webp',
-                },
-              ]}
-            />
-            <ProjectCardComponent
-              src="/project/cawe.webp"
-              title="CAWE Stock Traceability"
-              description="Development of a stock traceability mobile application for Android platforms."
-              technologies={['C#', 'Xamarin', 'SQL']}
-              links={[]}
-            />
-            <ProjectCardComponent
-              src="/project/kanjitest.webp"
-              title="日本語 Vocabulary Test"
-              description="Interactive app designed to help users to learn and memorize Japanese vocabulary."
-              technologies={['Electron', 'JavaScript']}
-              links={[
-                {
-                  href: 'https://github.com/ian-ledig/kanji-test',
-                  image: '/project/icon/github.webp',
-                },
-              ]}
-            />
-            <ProjectCardComponent
-              src="/project/dynamx.webp"
-              title="3D Model converter"
-              description="Contains two programs that allow converting Toolbox .java models designed for Minecraft Flan's mod to work with the DynamX mod."
-              technologies={['Python', 'Java']}
-              links={[
-                {
-                  href: 'https://github.com/ian-ledig/FlanToDynamX',
-                  image: '/project/icon/github.webp',
-                },
-              ]}
-            />
-            <ProjectCardComponent
-              src="/project/portfoliopump.webp"
-              title="Pump Portfolio"
-              description="Portfolio website to showcase my skills and projects."
-              technologies={['React', 'Next.js']}
-              links={[
-                {
-                  href: 'https://github.com/ian-ledig/portfolio-pump',
-                  image: '/project/icon/github.webp',
-                },
-              ]}
-            />
-            <ProjectCardComponent
-              src="/project/alysiaonline.webp"
-              title="Alysia Online MMORPG"
-              description="Modernizing a older open-source multiplayer game by incorporating current industry gameplay standards, mechanics and optimized the codebase to align with contemporary user expectations and performance benchmarks."
-              technologies={['C++', 'SQL']}
-              links={[]}
-            />
-            <ProjectCardComponent
-              src="/project/grooveai.webp"
-              title="Groove AI Music recognizer"
-              description="Development of a music theme recognition application using AI and machine learning."
-              technologies={['Python']}
-              links={[]}
-            />
-            <ProjectCardComponent
-              src="/project/inforetraite.webp"
-              title="Info Retraite Website"
-              description="Improving and monitoring of the Info Retraite website, including the development of new features and the correction of bugs."
-              technologies={['Angular', 'Java', 'Spring', 'SQL']}
-              links={[
-                {
-                  href: 'https://info-retraite.fr/',
-                  image: '/project/icon/link.webp',
-                },
-              ]}
-            />
-            <ProjectCardComponent
-              src="/project/archeroes.webp"
-              title="Serious Archeology Game"
-              description="Archeroes is a serious game designed to introduce players to the basics and principles of archaeology."
-              technologies={['Java', 'JavaFX']}
-              links={[
-                {
-                  href: 'https://github.com/ian-ledig/ekip-serious-game-archeros',
-                  image: '/project/icon/github.webp',
-                },
-              ]}
+            <MapComponent 
+              name="Dungeon Jungle Temple" 
+              description='A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for up to 6 boss.' 
+              price={150} 
+              count={0} 
+              maxCount={3} 
+              slides={SLIDES} 
+              options={OPTIONS} 
             />
           </div>
         </section>
@@ -246,9 +160,7 @@ export default function Home() {
           </div>
           <div>
             <div className="separator mb-3"></div>
-            <div className="text-end opacity-80">
-              Copyright © 2025 Pacito2
-            </div>
+            <div className="text-end opacity-80">Copyright © 2025 Pacito2</div>
           </div>
         </footer>
       </main>

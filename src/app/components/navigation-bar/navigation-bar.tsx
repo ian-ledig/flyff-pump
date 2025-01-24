@@ -113,7 +113,7 @@ const NavigationBarComponent: React.FC = () => {
             className="navigation-item button-1 font-heavy"
             href=""
           >
-            Discord
+            Contact
           </a>
         </div>
         <div className="navigation-bar-small">
