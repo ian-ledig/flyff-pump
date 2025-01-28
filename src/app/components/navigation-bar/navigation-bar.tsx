@@ -73,9 +73,9 @@ const NavigationBarComponent: React.FC = () => {
           <a href="">
             <Image
               className="logo"
-              src="/logofull.webp"
-              alt="Ian LEDIG logo"
-              width={100}
+              src="/logo.webp"
+              alt="Logo"
+              width={40}
               height={0}
               priority
             />

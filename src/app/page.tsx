@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import NavigationBarComponent from './components/navigation-bar/navigation-bar';
-import RandomTextComponent from './components/random-text/random-text';
-import InkImageComponent from './components/ink-image/ink-image';
 import CollaborationComponent from './components/collaboration/collaboration';
 import MapComponent from './components/map/map';
 import ContactComponent from './components/contact/contact';
@@ -22,38 +20,32 @@ export default function Home() {
       </Head>
       <header>
         <NavigationBarComponent />
-        <div className="random-text title-1 font-black">
-          <RandomTextComponent />
-        </div>
       </header>
       <main className="body" id="home">
         <section className="home" aria-labelledby="home-title">
-          <div className="home-picture">
-            <InkImageComponent src="/picture0.webp" alt="Sakurajima picture" />
-          </div>
-          <aside className="profile-card">
-            <div className="profile-card-picture">
-              <Image
-                src="/profile.webp"
-                alt="Pacito2 profile picture"
-                width={300}
-                height={0}
-                priority
-              />
+          <div className='home-filter'></div>
+          <video 
+            className="home-preview" 
+            src="preview.mp4" 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+          />
+          <aside className="home-content">
+            <div className='font-thin'>
+              I'm Pacito2, I have been creating maps for the Flyff game for over 10 years. I started with Beast software and now I'm using my own version of the WorldEditor software.
+              I use many self import assets to enhance my creations and offer a better version of Flyff game.
             </div>
-            <div className="profile-card-bio">
-              <div className="title-1 font-black">Pacito2</div>
-              <div className="subtitle-1 info-text font-regular">
-                Flyff Map Maker
-              </div>
-              <div className="flex items-center info-text justify-center">
-                <FaMapMarkerAlt
-                  size={12}
-                  className="mb-3.5 mr-1"
-                  style={{ color: 'var(--secondary)' }}
-                />
-                <div className="subtitle-3 mb-3 font-regular">France</div>
-              </div>
+            <div className='font-thin'>
+              <Image
+                className="logo object-contain self-start"
+                src="/logo.webp"
+                alt="Logo"
+                loading="lazy"
+                width={80}
+                height={0}
+              />
             </div>
           </aside>
         </section>
@@ -95,10 +87,10 @@ export default function Home() {
             <div className="footer-detail-item">
               <Image
                 className="logo object-contain self-start"
-                src="/logofull.webp"
-                alt="Ian LEDIG logo"
+                src="/logo.webp"
+                alt="Logo"
                 loading="lazy"
-                width={100}
+                width={40}
                 height={0}
               />
             </div>
