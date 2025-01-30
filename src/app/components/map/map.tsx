@@ -10,7 +10,7 @@ import {
 } from '../carousel-button/EmblaCarouselArrowButtons';
 import './map.css';
 import { FaBagShopping } from 'react-icons/fa6';
-import { FaEuroSign, FaMap, FaPlayCircle } from 'react-icons/fa';
+import { FaEuroSign, FaMap, FaPlayCircle, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 type PropType = {
   prefix: string;
@@ -36,18 +36,30 @@ const MapComponent: React.FC<PropType> = (props) => {
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
 
-  const [selectedVideo, setSelectedVideo] = useState(null);
-  const [selectedImage, setSelectedImage] = useState<number | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const mediaList = [...videos.map((v) => ({ type: "video", index: v })), ...slides.map((s) => ({ type: "image", index: s }))];
 
-  const handleVideoClick = (index: any) => setSelectedVideo(index);
-  const handleImageClick = (index: number) => setSelectedImage(index);
-
-  const closeModal = () => {
-    setSelectedVideo(null);
-    setSelectedImage(null);
+  const openModal = (type: "video" | "image", index: number) => {
+    const mediaIndex = mediaList.findIndex((item) => item.type === type && item.index === index);
+    if (mediaIndex !== -1) {
+      setSelectedIndex(mediaIndex);
+    }
   };
 
-  // previous and next media
+  const closeModal = () => setSelectedIndex(null);
+
+  const prevMedia = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) => (prev! > 0 ? prev! - 1 : mediaList.length - 1));
+    }
+  };
+
+  const nextMedia = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex((prev) => (prev! < mediaList.length - 1 ? prev! + 1 : 0));
+    }
+  };
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowLeft") prevMedia();
@@ -55,30 +67,14 @@ const MapComponent: React.FC<PropType> = (props) => {
       if (event.key === "Escape") closeModal();
     };
 
-    if (selectedVideo !== null || selectedImage !== null) {
+    if (selectedIndex !== null) {
       window.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedVideo, selectedImage]);
-
-  const prevMedia = () => {
-    if (selectedVideo !== null) {
-      setSelectedVideo((prev: any) => (prev! > 0 ? prev! - 1 : prev));
-    } else if (selectedImage !== null) {
-      setSelectedImage((prev) => (prev! > 0 ? prev! - 1 : prev));
-    }
-  };
-
-  const nextMedia = () => {
-    if (selectedVideo !== null) {
-      setSelectedVideo((prev: any) => (prev! < videos.length - 1 ? prev! + 1 : prev));
-    } else if (selectedImage !== null) {
-      setSelectedImage((prev) => (prev! < slides.length - 1 ? prev! + 1 : prev));
-    }
-  };
+  }, [selectedIndex]);
 
   return (
     <div className="embla">
@@ -117,13 +113,13 @@ const MapComponent: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={index}>
               <div 
                 className="embla__slide__img-wrapper relative cursor-pointer group"
-                onClick={() => handleVideoClick(index)}
-                aria-label={`Play video ${index}`}
+                onClick={() => openModal("video", index)}
+                aria-label={`Play video ${prefix} number ${index}`}
               >
                 <img
                   className="embla__slide__img"
                   src={`map/${prefix}/video/${index}.webp`}
-                  alt={`${prefix} image number ${index}`}
+                  alt={`Video thumbnail of ${prefix} number ${index}`}
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <FaPlayCircle className="w-16 h-16 text-white drop-shadow-lg" />
@@ -136,13 +132,13 @@ const MapComponent: React.FC<PropType> = (props) => {
             <div className="embla__slide" key={index}>
               <div 
                 className="embla__slide__img-wrapper cursor-pointer"
-                onClick={() => handleImageClick(index)}
-                aria-label={`View image ${index}`}
+                onClick={() => openModal("image", index)}
+                aria-label={`View image ${prefix} number ${index}`}
               >
                 <img
                   className="embla__slide__img"
                   src={`map/${prefix}/${index}.webp`}
-                  alt={`${prefix} image ${index}`}
+                  alt={`${prefix} number ${index}`}
                 />
               </div>
             </div>
@@ -161,43 +157,29 @@ const MapComponent: React.FC<PropType> = (props) => {
         </div>
       </div>
 
-      {selectedVideo !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-20">
-          <button className="absolute left-5 text-white text-3xl" onClick={prevMedia} disabled={selectedVideo === 0}>
-            left
+      {selectedIndex !== null && (
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-20" onClick={closeModal}>
+          <button className="absolute left-16 text-white text-3xl z-50" onClick={(e) => { e.stopPropagation(); prevMedia(); }}>
+            <FaChevronLeft />
           </button>
-          <div className="relative">
-            <video className="w-full max-w-4xl" controls autoPlay>
-              <source src={`map/${prefix}/video/${selectedVideo}.mp4`} type="video/mp4" />
-            </video>
-            <button className="absolute top-3 right-3 text-white text-xl" onClick={closeModal}>
-              ✕
+          <div className="relative p-4" onClick={(e) => e.stopPropagation()}>
+            {mediaList[selectedIndex].type === "video" ? (
+              <video className="w-full max-w-7xl" controls autoPlay>
+                <source src={`map/${prefix}/video/${mediaList[selectedIndex].index}.mp4`} type="video/mp4" />
+              </video>
+            ) : (
+              <img
+                className="max-w-full max-h-[90vh] rounded-lg transform scale-100"
+                src={`map/${prefix}/${mediaList[selectedIndex].index}.webp`}
+                alt={`Image ${mediaList[selectedIndex].index}`}
+              />
+            )}
+            <button className="absolute top-8 right-8 text-white text-xl" onClick={closeModal}>
+              <FaTimes size={24} />
             </button>
           </div>
-          <button className="absolute right-5 text-white text-3xl" onClick={nextMedia} disabled={selectedVideo === videos.length - 1}>
-            Right
-          </button>
-        </div>
-      )}
-
-      {/* Modal Image */}
-      {selectedImage !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-20">
-          <button className="absolute left-5 text-white text-3xl" onClick={prevMedia} disabled={selectedImage === 0}>
-            Left
-          </button>
-          <div className="relative p-4">
-            <img
-              className="max-w-full max-h-[80vh] rounded-lg transform scale-100"
-              src={`map/${prefix}/${selectedImage}.webp`}
-              alt={`${prefix} image ${selectedImage}`}
-            />
-            <button className="absolute top-3 right-3 text-white text-xl" onClick={closeModal}>
-              ✕
-            </button>
-          </div>
-          <button className="absolute right-5 text-white text-3xl" onClick={nextMedia} disabled={selectedImage === slides.length - 1}>
-            Right
+          <button className="absolute right-16 text-white text-3xl z-50" onClick={(e) => { e.stopPropagation(); nextMedia(); }}>
+            <FaChevronRight />
           </button>
         </div>
       )}
