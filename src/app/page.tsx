@@ -66,7 +66,7 @@ export default function Home() {
               price={150} 
               count={0} 
               maxCount={3} 
-              slides={Array.from(Array(5).keys())} 
+              slides={Array.from(Array(12).keys())} 
               videos={Array.from(Array(1).keys())} 
               options={OPTIONS} 
             />
