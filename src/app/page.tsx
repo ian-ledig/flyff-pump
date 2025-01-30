@@ -3,6 +3,7 @@ import Image from 'next/image';
 import NavigationBarComponent from './components/navigation-bar/navigation-bar';
 import CollaborationComponent from './components/collaboration/collaboration';
 import MapComponent from './components/map/map';
+import FaqCardComponent from './components/faq-card/faq-card';
 import ContactComponent from './components/contact/contact';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { EmblaOptionsType } from 'embla-carousel';
@@ -74,10 +75,15 @@ export default function Home() {
         </section>
         <section id="faq" aria-labelledby="faq-title">
           <h2 className="title title-1 font-black">FAQ</h2>
-          
+          <div className='faq'>
+            <FaqCardComponent question='How can I purchase?' answer='You can access the contact section of this website to get in touch with me and proceed with the purchase.'/>
+            <FaqCardComponent question='Can I get the exclusivity of a map?' answer='You can get the exclusivity of a map by purchasing it twice, if no one already paid for it.'/>
+            <FaqCardComponent question='Can I get a special price?' answer='Sorry, but no. The price is the same for everyone to ensure fairness.'/>
+            <FaqCardComponent question='Can I ask for a custom order?' answer='Of course! However, if you don&rsquo;t pay for exclusivity, the map will also be available for sale on this website.'/>
+            <FaqCardComponent question='How many customers can buy a map?' answer='The number of times each map is sold is displayed above it. A single map cannot be sold more than three times.'/>
+          </div>
         </section>
         <div className='image-transition'>
-
         </div>
         <section id="contact" aria-labelledby="contact-title">
           <ContactComponent />

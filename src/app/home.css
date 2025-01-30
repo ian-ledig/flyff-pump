@@ -95,6 +95,16 @@
         padding-bottom: 80px;
     }
 
+    .faq{
+        display: flex;
+        flex-direction: column;
+        margin: 0 20vw 0 20vw;
+        border-top: solid var(--secondary);
+        border-left: solid var(--secondary);
+        border-right: solid var(--tertiary);
+        border-radius: 4px;
+    }
+
     .image-transition{
         min-height: 20vw;
         position: relative;

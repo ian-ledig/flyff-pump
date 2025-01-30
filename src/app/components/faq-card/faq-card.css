@@ -1,0 +1,21 @@
+.faq-card{
+    padding: 15px;
+    border-bottom: solid;
+    border-color: var(--tertiary);
+    cursor: pointer;
+
+    .faq-question{
+        display: flex;
+        justify-content: space-between;
+
+        .icon{
+            margin-top: 4px;
+            color: var(--tertiary);
+        }
+    }
+
+    .faq-answer{
+        margin: 15px 0 0 15px;
+        color: var(--light-gray);
+    }
+}
