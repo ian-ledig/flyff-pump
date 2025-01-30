@@ -24,8 +24,8 @@ export async function POST(req: Request) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'ian.ledigfr@gmail.com',
-      subject: `Portfolio Contact Form: ${subject}`,
+      to: 'maxthibpamahopa@gmail.com',
+      subject: `Flyff Contact Form: ${subject}`,
       text: `Message from: ${email}\n\n${message}`,
     };
 

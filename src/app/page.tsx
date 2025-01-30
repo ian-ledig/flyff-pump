@@ -51,7 +51,7 @@ export default function Home() {
         </section>
         <section id="collaboration" aria-labelledby="collaboration-title">
           <h2 className="title title-1 font-black">They trusted me_</h2>
-          <CollaborationComponent slides={Array.from(Array(4).keys())} options={OPTIONS} />
+          <CollaborationComponent slides={Array.from(Array(5).keys())} options={OPTIONS} />
           <div className="title-2 text-center font-thin mt-3 mb-20">
             Will you be next?
           </div>
@@ -60,21 +60,14 @@ export default function Home() {
           <h2 className="title title-1 font-black">Maps_</h2>
           <div className="map">
             <MapComponent 
+              prefix='rocreen'
               name="Dungeon Jungle Temple" 
               description='A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for up to 6 boss.' 
               price={150} 
               count={0} 
               maxCount={3} 
               slides={Array.from(Array(5).keys())} 
-              options={OPTIONS} 
-            />
-            <MapComponent 
-              name="Dungeon Jungle Temple" 
-              description='A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for up to 6 boss.' 
-              price={150} 
-              count={0} 
-              maxCount={3} 
-              slides={Array.from(Array(5).keys())} 
+              videos={Array.from(Array(1).keys())} 
               options={OPTIONS} 
             />
           </div>

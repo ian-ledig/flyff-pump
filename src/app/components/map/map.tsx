@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { EmblaOptionsType } from 'embla-carousel';
 import useEmblaCarousel from 'embla-carousel-react';
 import {
@@ -13,17 +13,19 @@ import { FaBagShopping } from 'react-icons/fa6';
 import { FaEuroSign, FaMap } from 'react-icons/fa';
 
 type PropType = {
+  prefix: string;
   name: string;
   description: string;
   price: number;
   count: number;
   maxCount: number;
   slides: number[];
+  videos: number[];
   options?: EmblaOptionsType;
 };
 
 const MapComponent: React.FC<PropType> = (props) => {
-  const { name, description, price, count, maxCount, slides, options } = props;
+  const { prefix, name, description, price, count, maxCount, slides, videos, options } = props;
   const progressNode = useRef<HTMLDivElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
@@ -33,6 +35,16 @@ const MapComponent: React.FC<PropType> = (props) => {
     onPrevButtonClick,
     onNextButtonClick,
   } = usePrevNextButtons(emblaApi);
+
+  const [selectedVideo, setSelectedVideo] = useState(null);
+
+  const handleVideoClick = (index: any) => {
+    setSelectedVideo(index);
+  };
+
+  const closeModal = () => {
+    setSelectedVideo(null);
+  };
 
   return (
     <div className="embla">
@@ -67,13 +79,24 @@ const MapComponent: React.FC<PropType> = (props) => {
       </div>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
+          {videos.map((index) => (
+            <div className="embla__slide" key={index}>
+              <div className="embla__slide__img-wrapper cursor-pointer" onClick={() => handleVideoClick(index)}>
+                <img
+                  className="embla__slide__img"
+                  src={`map/${prefix}/video/${index}.jpg`}
+                  alt={`${prefix} image number ${index}`}
+                />
+              </div>
+            </div>
+          ))}
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
               <div className="embla__slide__img-wrapper">
                 <img
                   className="embla__slide__img"
-                  src={`https://picsum.photos/600/350?v=${index}`}
-                  alt="Your alt text"
+                  src={`map/${prefix}/${index}.jpg`}
+                  alt={`${prefix} image number ${index}`}
                 />
               </div>
             </div>
@@ -91,6 +114,20 @@ const MapComponent: React.FC<PropType> = (props) => {
           <div className="embla__progress__bar" ref={progressNode} />
         </div>
       </div>
+
+      {selectedVideo !== null && (
+        <div className="video-modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-20" onClick={closeModal}>
+          <div className="video-wrapper relative" onClick={(e) => e.stopPropagation()}>
+            <video className="w-full max-w-4xl" controls autoPlay>
+              <source src={`map/${prefix}/video/${selectedVideo}.mp4`} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <button className="absolute top-3 right-3 text-white text-xl" onClick={closeModal}>
+              ✕
+              </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

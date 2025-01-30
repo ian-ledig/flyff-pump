@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Ian LEDIG',
-  description: "Ian LEDIG's personal website",
+  title: 'Flyff Maps',
+  description: "Pacito2 Flyff maps",
 };
 
 export default function RootLayout({

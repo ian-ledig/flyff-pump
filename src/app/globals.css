@@ -23,10 +23,6 @@
     background-color: #19376D;
   }
 
-  .logo{
-    content: url('/logofullwhite.webp');
-  }
-
   a:hover {
     color: white !important;
   }
