@@ -62,7 +62,7 @@ export default function Home() {
             <MapComponent 
               prefix='rocreen'
               name="Dungeon Jungle Temple" 
-              description='A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for up to 6 boss.' 
+              description='A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for 3 to 6 bosses.' 
               price={150} 
               count={0} 
               maxCount={3} 
@@ -72,6 +72,13 @@ export default function Home() {
             />
           </div>
         </section>
+        <section id="faq" aria-labelledby="faq-title">
+          <h2 className="title title-1 font-black">FAQ</h2>
+          
+        </section>
+        <div className='image-transition'>
+
+        </div>
         <section id="contact" aria-labelledby="contact-title">
           <ContactComponent />
         </section>
@@ -108,10 +115,13 @@ export default function Home() {
                   Home
                 </a>
                 <a href="#collaboration" className="font-regular">
-                  About
+                  Servers
                 </a>
                 <a href="#map" className="font-regular">
                   Maps
+                </a>
+                <a href="#faq" className="font-regular">
+                  FAQ
                 </a>
                 <a href="#contact" className="font-regular">
                   Contact

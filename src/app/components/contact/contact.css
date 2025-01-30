@@ -8,8 +8,10 @@
     .contact-container {
         display: flex;
         justify-content: center;
-        padding-bottom: 80px;
-        background: linear-gradient(to bottom, var(--secondary) 50px, transparent 0px);
+        padding-bottom: 80px;        
+        background: linear-gradient(to bottom, var(--red) 30px, var(--pink) 50px, transparent 0px);
+
+
         text-align: center;
         width: 30%;
         background-color: var(--primary);

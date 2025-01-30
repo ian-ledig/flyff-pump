@@ -104,7 +104,7 @@ const MapComponent: React.FC<PropType> = (props) => {
           />
         </div>
       </div>
-      <div className='pb-3.5 pl-32 italic text-slate-600'>
+      <div className='pb-4 pl-32 italic text-slate-600'>
         { description }
       </div>
       <div className="embla__viewport" ref={emblaRef}>

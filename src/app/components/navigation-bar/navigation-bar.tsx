@@ -7,6 +7,7 @@ import {
   IoInformationCircle,
   IoBookmark,
   IoMailOpen,
+  IoGlobeOutline
 } from 'react-icons/io5';
 import ThemeSwitch from '../theme-switch/theme-switch';
 import './navigation-bar.css';
@@ -40,7 +41,7 @@ const NavigationBarComponent: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll<HTMLElement>(
-        '#home, #collaboration, #map, #contact'
+        '#home, #faq, #collaboration, #map, #contact'
       );
       let currentSection = 'home';
 
@@ -94,7 +95,7 @@ const NavigationBarComponent: React.FC = () => {
             className={`navigation-item font-heavy ${activeSection === 'collaboration' ? 'active' : ''}`}
             href=""
           >
-            About
+            Servers
           </a>
           <div className="navigation-separator">|</div>
           <a
@@ -103,6 +104,14 @@ const NavigationBarComponent: React.FC = () => {
             href=""
           >
             Maps
+          </a>
+          <div className="navigation-separator">|</div>
+          <a
+            onClick={(e) => handleLinkClick(e, 'faq')}
+            className={`navigation-item font-heavy ${activeSection === 'faq' ? 'active' : ''}`}
+            href=""
+          >
+            FAQ
           </a>
           <div className="navigation-separator">|</div>
         </div>
@@ -130,8 +139,8 @@ const NavigationBarComponent: React.FC = () => {
             className={`navigation-item font-heavy ${activeSection === 'collaboration' ? 'active' : ''}`}
             href=""
           >
-            <IoInformationCircle size={20} className="mt-2" />
-            <div className="text-xs">About</div>
+            <IoGlobeOutline size={20} className="mt-2" />
+            <div className="text-xs">Servers</div>
           </a>
           <a
             onClick={(e) => handleLinkClick(e, 'map')}
@@ -140,6 +149,14 @@ const NavigationBarComponent: React.FC = () => {
           >
             <IoBookmark size={20} className="mt-2" />
             <div className="text-xs">Maps</div>
+          </a>
+          <a
+            onClick={(e) => handleLinkClick(e, 'faq')}
+            className={`navigation-item font-heavy ${activeSection === 'faq' ? 'active' : ''}`}
+            href=""
+          >
+            <IoInformationCircle size={20} className="mt-2" />
+            <div className="text-xs">FAQ</div>
           </a>
           <a
             onClick={(e) => handleLinkClick(e, 'contact')}

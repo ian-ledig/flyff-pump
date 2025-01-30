@@ -94,6 +94,19 @@
         flex-wrap: wrap;
         padding-bottom: 80px;
     }
+
+    .image-transition{
+        min-height: 20vw;
+        position: relative;
+        background: url('/wave.svg');
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    #contact {
+        background-color: var(--tertiary);
+    }
 }
 
 .footer {
@@ -101,7 +114,8 @@
     flex-direction: column;
     gap: 40px;
     padding: 3% 3% 10px 3%;
-    background-color: var(--primary);
+    background-color: var(--dark-purple);
+    color: white;
 
     .footer-detail {
         display: flex;
@@ -117,7 +131,7 @@
                 flex-direction: column;
 
                 a:hover {
-                    color: var(--tertiary);
+                    color: var(--red);
                 }
             }
         }
