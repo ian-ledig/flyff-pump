@@ -1,4 +1,4 @@
-# 💻 Pump Porfolio Flyff
+# 💻 Pump Flyff
 
 Welcome to my open-source portfolio for Flyff! This repository showcases my new maps.
 
@@ -28,8 +28,8 @@ Make sure you have the following installed:
 
 1.  **Clone the repository**:
     ```bash
-    git clone https://github.com/ian-ledig/portfolio-pump.git
-    cd portfolio-pump
+    git clone https://github.com/ian-ledig/flyff-pump.git
+    cd flyff-pump
     ```
 2.  **Install dependencies**:
     ```bash
@@ -59,7 +59,7 @@ Make sure you have the following installed:
     # or
     bun dev
     ```
-5.  **Open your browser** and navigate to [http://localhost:3000](http://localhost:3000).
+5.  **Open your browser** and navigate to [http://localhost:3001](http://localhost:3001).
 
 ---
 
@@ -75,7 +75,7 @@ If you’d like to dive deeper into the technologies used in this portfolio, her
 
 ## 🛡️ License
 
-This project is licensed under the **MIT License** — see the [LICENSE](https://github.com/ian-ledig/portfolio-pump/blob/master/LICENSE) file for more details.
+This project is licensed under the **MIT License** — see the [LICENSE](https://github.com/ian-ledig/flyff-pump/blob/master/LICENSE) file for more details.
 
 ---
 
