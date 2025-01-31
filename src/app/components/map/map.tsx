@@ -146,11 +146,8 @@ const MapComponent: React.FC<PropType> = (props) => {
               >
                 <img
                   className="embla__slide__img object-cover w-full h-full scale-125"
-                  src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+                  src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
                   alt={`Video thumbnail for ${id}`}
-                  onError={(e) =>
-                    (e.currentTarget.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`)
-                  }
                 />
                 <div className="absolute inset-0 flex items-center justify-center">
                   <FaPlayCircle className="w-16 h-16 text-white drop-shadow-lg" />
