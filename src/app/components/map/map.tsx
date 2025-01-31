@@ -61,7 +61,9 @@ const MapComponent: React.FC<PropType> = (props) => {
 
   const openModal = (type: 'video' | 'image', idOrIndex: string | number) => {
     const mediaIndex = mediaList.findIndex(
-      (item: any) => item.type === type && (item.id === idOrIndex || item.index === idOrIndex)
+      (item: any) =>
+        item.type === type &&
+        (item.id === idOrIndex || item.index === idOrIndex)
     );
     if (mediaIndex !== -1) {
       setSelectedIndex(mediaIndex);
@@ -135,26 +137,28 @@ const MapComponent: React.FC<PropType> = (props) => {
       <div className="description">{description}</div>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-        {videos.map((id) => (
-          <div className="embla__slide" key={id}>
-            <div
-              className="embla__slide__img-wrapper relative cursor-pointer group"
-              onClick={() => openModal('video', id)}
-              aria-label={`Play YouTube video ${id}`}
-            >
-              <img
-                className="embla__slide__img object-cover w-full h-full scale-125"
-                src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
-                alt={`Video thumbnail for ${id}`}
-                onError={(e) => (e.currentTarget.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`)}
-              />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <FaPlayCircle className="w-16 h-16 text-white drop-shadow-lg" />
+          {videos.map((id) => (
+            <div className="embla__slide" key={id}>
+              <div
+                className="embla__slide__img-wrapper relative cursor-pointer group"
+                onClick={() => openModal('video', id)}
+                aria-label={`Play YouTube video ${id}`}
+              >
+                <img
+                  className="embla__slide__img object-cover w-full h-full scale-125"
+                  src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+                  alt={`Video thumbnail for ${id}`}
+                  onError={(e) =>
+                    (e.currentTarget.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`)
+                  }
+                />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <FaPlayCircle className="w-16 h-16 text-white drop-shadow-lg" />
+                </div>
+                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
-              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-          </div>
-        ))}
+          ))}
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
               <div
@@ -199,7 +203,10 @@ const MapComponent: React.FC<PropType> = (props) => {
             <FaChevronLeft />
           </button>
 
-          <div className="relative p-4 w-[90vw] max-w-[1200px]" onClick={(e) => e.stopPropagation()}>
+          <div
+            className="relative p-4 w-[90vw] max-w-[1200px]"
+            onClick={(e) => e.stopPropagation()}
+          >
             {mediaList[selectedIndex].type === 'video' ? (
               <div className="relative w-full aspect-video">
                 <iframe

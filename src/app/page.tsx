@@ -75,7 +75,7 @@ export default function Home() {
               count={0}
               maxCount={3}
               slides={Array.from(Array(12).keys())}
-              videos={["99zfiyq0Qh0"]}
+              videos={['99zfiyq0Qh0']}
               options={OPTIONS}
             />
           </div>
