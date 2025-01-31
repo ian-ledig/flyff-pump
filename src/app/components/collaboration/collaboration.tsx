@@ -22,10 +22,7 @@ const CollaborationComponent: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
-              <img
-                src={`collaboration/${index}.webp`}
-                alt="Your alt text"
-              />
+              <img src={`collaboration/${index}.webp`} alt="Your alt text" />
             </div>
           ))}
         </div>

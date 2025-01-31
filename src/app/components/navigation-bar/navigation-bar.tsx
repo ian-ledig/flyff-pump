@@ -7,7 +7,7 @@ import {
   IoInformationCircle,
   IoBookmark,
   IoMailOpen,
-  IoGlobeOutline
+  IoGlobeOutline,
 } from 'react-icons/io5';
 import ThemeSwitch from '../theme-switch/theme-switch';
 import './navigation-bar.css';

@@ -3,7 +3,7 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Flyff Maps',
-  description: "Pacito2 Flyff maps",
+  description: 'Pacito2 Flyff maps',
 };
 
 export default function RootLayout({

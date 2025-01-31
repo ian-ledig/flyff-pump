@@ -24,21 +24,24 @@ export default function Home() {
       </header>
       <main className="body" id="home">
         <section className="home" aria-labelledby="home-title">
-          <div className='home-filter'></div>
-          <video 
-            className="home-preview" 
-            src="preview.mp4" 
-            autoPlay 
-            loop 
-            muted 
+          <div className="home-filter"></div>
+          <video
+            className="home-preview"
+            src="preview.mp4"
+            autoPlay
+            loop
+            muted
             playsInline
           />
           <aside className="home-content">
-            <div className='font-thin'>
-              I'm Pacito2, I have been creating maps for the Flyff game for over 10 years. I started with Beast software and now I'm using my own version of the WorldEditor software.
-              I use many self import assets to enhance my creations and offer a better version of Flyff game.
+            <div className="font-thin">
+              I&rsquo;m Pacito2, I have been creating maps for the Flyff game
+              for over 10 years. I started with Beast software and now I&rsquo;m
+              using my own version of the WorldEditor software. I use many self
+              import assets to enhance my creations and offer a better version
+              of Flyff game.
             </div>
-            <div className='font-thin'>
+            <div className="font-thin">
               <Image
                 className="logo object-contain self-start"
                 src="/logo.webp"
@@ -52,7 +55,10 @@ export default function Home() {
         </section>
         <section id="collaboration" aria-labelledby="collaboration-title">
           <h2 className="title title-1 font-black">They trusted me_</h2>
-          <CollaborationComponent slides={Array.from(Array(5).keys())} options={OPTIONS} />
+          <CollaborationComponent
+            slides={Array.from(Array(5).keys())}
+            options={OPTIONS}
+          />
           <div className="title-2 text-center font-thin mt-3 mb-20">
             Will you be next?
           </div>
@@ -60,31 +66,45 @@ export default function Home() {
         <section id="map" aria-labelledby="maps-title">
           <h2 className="title title-1 font-black">Maps_</h2>
           <div className="map">
-            <MapComponent 
-              prefix='rocreen'
-              name="Dungeon Jungle Temple" 
-              description='A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for 3 to 6 bosses.' 
-              price={150} 
-              count={0} 
-              maxCount={3} 
-              slides={Array.from(Array(12).keys())} 
-              videos={Array.from(Array(1).keys())} 
-              options={OPTIONS} 
+            <MapComponent
+              prefix="rocreen"
+              name="Dungeon Jungle Temple"
+              description="A jungle-temple dungeon map with lush vegetation and ancient ruins, designed for 3 to 6 bosses."
+              price={150}
+              count={0}
+              maxCount={3}
+              slides={Array.from(Array(12).keys())}
+              videos={Array.from(Array(1).keys())}
+              options={OPTIONS}
             />
           </div>
         </section>
         <section id="faq" aria-labelledby="faq-title">
           <h2 className="title title-1 font-black">FAQ</h2>
-          <div className='faq'>
-            <FaqCardComponent question='How can I purchase?' answer='You can access the contact section of this website to get in touch with me and proceed with the purchase.'/>
-            <FaqCardComponent question='Can I get the exclusivity of a map?' answer='You can get the exclusivity of a map by purchasing it twice, if no one already paid for it.'/>
-            <FaqCardComponent question='Can I get a special price?' answer='Sorry, but no. The price is the same for everyone to ensure fairness.'/>
-            <FaqCardComponent question='Can I ask for a custom order?' answer='Of course! However, if you don&rsquo;t pay for exclusivity, the map will also be available for sale on this website.'/>
-            <FaqCardComponent question='How many customers can buy a map?' answer='The number of times each map is sold is displayed above it. A single map cannot be sold more than three times.'/>
+          <div className="faq">
+            <FaqCardComponent
+              question="How can I purchase?"
+              answer="You can access the contact section of this website to get in touch with me and proceed with the purchase."
+            />
+            <FaqCardComponent
+              question="Can I get the exclusivity of a map?"
+              answer="You can get the exclusivity of a map by purchasing it twice, if no one already paid for it."
+            />
+            <FaqCardComponent
+              question="Can I get a special price?"
+              answer="Sorry, but no. The price is the same for everyone to ensure fairness."
+            />
+            <FaqCardComponent
+              question="Can I ask for a custom order?"
+              answer="Of course! However, if you don&rsquo;t pay for exclusivity, the map will also be available for sale on this website."
+            />
+            <FaqCardComponent
+              question="How many customers can buy a map?"
+              answer="The number of times each map is sold is displayed above it. A single map cannot be sold more than three times."
+            />
           </div>
         </section>
-        <div className='image-transition'>
-        </div>
+        <div className="image-transition"></div>
         <section id="contact" aria-labelledby="contact-title">
           <ContactComponent />
         </section>

@@ -10,7 +10,14 @@ import {
 } from '../carousel-button/EmblaCarouselArrowButtons';
 import './map.css';
 import { FaBagShopping } from 'react-icons/fa6';
-import { FaEuroSign, FaMap, FaPlayCircle, FaTimes, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import {
+  FaEuroSign,
+  FaMap,
+  FaPlayCircle,
+  FaTimes,
+  FaChevronLeft,
+  FaChevronRight,
+} from 'react-icons/fa';
 
 type PropType = {
   prefix: string;
@@ -25,7 +32,17 @@ type PropType = {
 };
 
 const MapComponent: React.FC<PropType> = (props) => {
-  const { prefix, name, description, price, count, maxCount, slides, videos, options } = props;
+  const {
+    prefix,
+    name,
+    description,
+    price,
+    count,
+    maxCount,
+    slides,
+    videos,
+    options,
+  } = props;
   const progressNode = useRef<HTMLDivElement>(null);
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 
@@ -37,10 +54,15 @@ const MapComponent: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const mediaList = [...videos.map((v) => ({ type: "video", index: v })), ...slides.map((s) => ({ type: "image", index: s }))];
+  const mediaList = [
+    ...videos.map((v) => ({ type: 'video', index: v })),
+    ...slides.map((s) => ({ type: 'image', index: s })),
+  ];
 
-  const openModal = (type: "video" | "image", index: number) => {
-    const mediaIndex = mediaList.findIndex((item) => item.type === type && item.index === index);
+  const openModal = (type: 'video' | 'image', index: number) => {
+    const mediaIndex = mediaList.findIndex(
+      (item) => item.type === type && item.index === index
+    );
     if (mediaIndex !== -1) {
       setSelectedIndex(mediaIndex);
     }
@@ -50,70 +72,74 @@ const MapComponent: React.FC<PropType> = (props) => {
 
   const prevMedia = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex((prev) => (prev! > 0 ? prev! - 1 : mediaList.length - 1));
+      setSelectedIndex((prev) =>
+        prev! > 0 ? prev! - 1 : mediaList.length - 1
+      );
     }
   };
 
   const nextMedia = () => {
     if (selectedIndex !== null) {
-      setSelectedIndex((prev) => (prev! < mediaList.length - 1 ? prev! + 1 : 0));
+      setSelectedIndex((prev) =>
+        prev! < mediaList.length - 1 ? prev! + 1 : 0
+      );
     }
   };
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "ArrowLeft") prevMedia();
-      if (event.key === "ArrowRight") nextMedia();
-      if (event.key === "Escape") closeModal();
+      if (event.key === 'ArrowLeft') prevMedia();
+      if (event.key === 'ArrowRight') nextMedia();
+      if (event.key === 'Escape') closeModal();
     };
 
     if (selectedIndex !== null) {
-      window.addEventListener("keydown", handleKeyDown);
+      window.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   }, [selectedIndex]);
 
   return (
     <div className="embla">
-      <div className='map-info-container'>
-        <div className='map-info-item'>
-          <h3 className='title-2 font-semibold'>{ name }</h3>
+      <div className="map-info-container">
+        <div className="map-info-item">
+          <h3 className="title-2 font-semibold">{name}</h3>
           <FaMap
-              size={26}
-              className='mt-3 ml-3'
-              style={{ color: 'var(--icon)' }}
+            size={26}
+            className="mt-3 ml-3"
+            style={{ color: 'var(--icon)' }}
           />
         </div>
-        <div className='map-info-item'>
-          <h4 className='title-2 font-semibold'>{ count } / { maxCount }</h4>
+        <div className="map-info-item">
+          <h4 className="title-2 font-semibold">
+            {count} / {maxCount}
+          </h4>
           <FaBagShopping
-              size={26}
-              className='mt-3 ml-3'
-              style={{ color: 'var(--icon)' }}
+            size={26}
+            className="mt-3 ml-3"
+            style={{ color: 'var(--icon)' }}
           />
         </div>
-        <div className='map-info-item'>
-          <h4 className='title-2 font-semibold'>{ price }</h4>
+        <div className="map-info-item">
+          <h4 className="title-2 font-semibold">{price}</h4>
           <FaEuroSign
-              size={26}
-              className='mt-3'
-              style={{ color: 'var(--icon)' }}
+            size={26}
+            className="mt-3"
+            style={{ color: 'var(--icon)' }}
           />
         </div>
       </div>
-      <div className='description'>
-        { description }
-      </div>
+      <div className="description">{description}</div>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
           {videos.map((index) => (
             <div className="embla__slide" key={index}>
-              <div 
+              <div
                 className="embla__slide__img-wrapper relative cursor-pointer group"
-                onClick={() => openModal("video", index)}
+                onClick={() => openModal('video', index)}
                 aria-label={`Play video ${prefix} number ${index}`}
               >
                 <img
@@ -130,9 +156,9 @@ const MapComponent: React.FC<PropType> = (props) => {
           ))}
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
-              <div 
+              <div
                 className="embla__slide__img-wrapper cursor-pointer"
-                onClick={() => openModal("image", index)}
+                onClick={() => openModal('image', index)}
                 aria-label={`View image ${prefix} number ${index}`}
               >
                 <img
@@ -158,14 +184,26 @@ const MapComponent: React.FC<PropType> = (props) => {
       </div>
 
       {selectedIndex !== null && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-20" onClick={closeModal}>
-          <button className="absolute left-16 text-white text-3xl z-50" onClick={(e) => { e.stopPropagation(); prevMedia(); }}>
+        <div
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-20"
+          onClick={closeModal}
+        >
+          <button
+            className="absolute left-16 text-white text-3xl z-50"
+            onClick={(e) => {
+              e.stopPropagation();
+              prevMedia();
+            }}
+          >
             <FaChevronLeft />
           </button>
           <div className="relative p-4" onClick={(e) => e.stopPropagation()}>
-            {mediaList[selectedIndex].type === "video" ? (
+            {mediaList[selectedIndex].type === 'video' ? (
               <video className="w-full max-w-7xl" controls autoPlay>
-                <source src={`map/${prefix}/video/${mediaList[selectedIndex].index}.mp4`} type="video/mp4" />
+                <source
+                  src={`map/${prefix}/video/${mediaList[selectedIndex].index}.mp4`}
+                  type="video/mp4"
+                />
               </video>
             ) : (
               <img
@@ -174,11 +212,20 @@ const MapComponent: React.FC<PropType> = (props) => {
                 alt={`Image ${mediaList[selectedIndex].index}`}
               />
             )}
-            <button className="absolute top-8 right-8 text-white text-xl" onClick={closeModal}>
+            <button
+              className="absolute top-8 right-8 text-white text-xl"
+              onClick={closeModal}
+            >
               <FaTimes size={24} />
             </button>
           </div>
-          <button className="absolute right-16 text-white text-3xl z-50" onClick={(e) => { e.stopPropagation(); nextMedia(); }}>
+          <button
+            className="absolute right-16 text-white text-3xl z-50"
+            onClick={(e) => {
+              e.stopPropagation();
+              nextMedia();
+            }}
+          >
             <FaChevronRight />
           </button>
         </div>
