@@ -27,7 +27,7 @@ type PropType = {
   count: number;
   maxCount: number;
   slides: number[];
-  videos: number[];
+  videos: string[];
   options?: EmblaOptionsType;
 };
 
@@ -54,14 +54,14 @@ const MapComponent: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi);
 
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-  const mediaList = [
-    ...videos.map((v) => ({ type: 'video', index: v })),
+  const mediaList: any = [
+    ...videos.map((id) => ({ type: 'video', id })),
     ...slides.map((s) => ({ type: 'image', index: s })),
   ];
 
-  const openModal = (type: 'video' | 'image', index: number) => {
+  const openModal = (type: 'video' | 'image', idOrIndex: string | number) => {
     const mediaIndex = mediaList.findIndex(
-      (item) => item.type === type && item.index === index
+      (item: any) => item.type === type && (item.id === idOrIndex || item.index === idOrIndex)
     );
     if (mediaIndex !== -1) {
       setSelectedIndex(mediaIndex);
@@ -135,25 +135,26 @@ const MapComponent: React.FC<PropType> = (props) => {
       <div className="description">{description}</div>
       <div className="embla__viewport" ref={emblaRef}>
         <div className="embla__container">
-          {videos.map((index) => (
-            <div className="embla__slide" key={index}>
-              <div
-                className="embla__slide__img-wrapper relative cursor-pointer group"
-                onClick={() => openModal('video', index)}
-                aria-label={`Play video ${prefix} number ${index}`}
-              >
-                <img
-                  className="embla__slide__img"
-                  src={`map/${prefix}/video/${index}.webp`}
-                  alt={`Video thumbnail of ${prefix} number ${index}`}
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <FaPlayCircle className="w-16 h-16 text-white drop-shadow-lg" />
-                </div>
-                <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        {videos.map((id) => (
+          <div className="embla__slide" key={id}>
+            <div
+              className="embla__slide__img-wrapper relative cursor-pointer group"
+              onClick={() => openModal('video', id)}
+              aria-label={`Play YouTube video ${id}`}
+            >
+              <img
+                className="embla__slide__img object-cover w-full h-full scale-125"
+                src={`https://img.youtube.com/vi/${id}/maxresdefault.jpg`}
+                alt={`Video thumbnail for ${id}`}
+                onError={(e) => (e.currentTarget.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`)}
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <FaPlayCircle className="w-16 h-16 text-white drop-shadow-lg" />
               </div>
+              <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-          ))}
+          </div>
+        ))}
           {slides.map((index) => (
             <div className="embla__slide" key={index}>
               <div
@@ -185,7 +186,7 @@ const MapComponent: React.FC<PropType> = (props) => {
 
       {selectedIndex !== null && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-20"
+          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
           onClick={closeModal}
         >
           <button
@@ -197,14 +198,19 @@ const MapComponent: React.FC<PropType> = (props) => {
           >
             <FaChevronLeft />
           </button>
-          <div className="relative p-4" onClick={(e) => e.stopPropagation()}>
+
+          <div className="relative p-4 w-[90vw] max-w-[1200px]" onClick={(e) => e.stopPropagation()}>
             {mediaList[selectedIndex].type === 'video' ? (
-              <video className="w-full max-w-7xl" controls autoPlay>
-                <source
-                  src={`map/${prefix}/video/${mediaList[selectedIndex].index}.mp4`}
-                  type="video/mp4"
-                />
-              </video>
+              <div className="relative w-full aspect-video">
+                <iframe
+                  className="w-full h-full rounded-lg"
+                  src={`https://www.youtube.com/embed/${mediaList[selectedIndex].id}?autoplay=1&vq=hd1080`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             ) : (
               <img
                 className="max-w-full max-h-[90vh] rounded-lg transform scale-100"
@@ -213,12 +219,13 @@ const MapComponent: React.FC<PropType> = (props) => {
               />
             )}
             <button
-              className="absolute top-8 right-8 text-white text-xl"
+              className="absolute top-8 right-8 text-white text-2xl bg-black bg-opacity-50 p-2 rounded-full"
               onClick={closeModal}
             >
               <FaTimes size={24} />
             </button>
           </div>
+
           <button
             className="absolute right-16 text-white text-3xl z-50"
             onClick={(e) => {

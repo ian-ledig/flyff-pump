@@ -25,14 +25,15 @@ export default function Home() {
       <main className="body" id="home">
         <section className="home" aria-labelledby="home-title">
           <div className="home-filter"></div>
-          <video
-            className="home-preview"
-            src="preview.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
+          <iframe
+            className="home-preview absolute top-0 left-0 w-full h-full object-cover"
+            src="https://www.youtube.com/embed/4-5Bgf-dQew?autoplay=1&mute=1&loop=1&playlist=4-5Bgf-dQew&controls=0&showinfo=0&modestbranding=1&vq=hd1080"
+            title="YouTube video background"
+            frameBorder="0"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
           />
+
           <aside className="home-content">
             <div className="font-thin">
               I&rsquo;m Pacito2, I have been creating maps for the Flyff game
@@ -74,7 +75,7 @@ export default function Home() {
               count={0}
               maxCount={3}
               slides={Array.from(Array(12).keys())}
-              videos={Array.from(Array(1).keys())}
+              videos={["99zfiyq0Qh0"]}
               options={OPTIONS}
             />
           </div>
