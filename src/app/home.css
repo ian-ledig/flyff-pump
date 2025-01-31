@@ -87,7 +87,7 @@
 
     .map {
         position: relative;
-        padding: 20px;
+        padding: 20px 0 20px 0;
         display: flex;
         justify-content: center;
         gap: 72px;
@@ -99,8 +99,8 @@
         display: flex;
         flex-direction: column;
         margin: 0 20vw 0 20vw;
-        border-top: solid var(--secondary);
-        border-left: solid var(--secondary);
+        border-top: solid var(--icon);
+        border-left: solid var(--icon);
         border-right: solid var(--tertiary);
         border-radius: 4px;
     }

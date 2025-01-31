@@ -84,7 +84,7 @@ const MapComponent: React.FC<PropType> = (props) => {
           <FaMap
               size={26}
               className='mt-3 ml-3'
-              style={{ color: 'var(--secondary)' }}
+              style={{ color: 'var(--icon)' }}
           />
         </div>
         <div className='map-info-item'>
@@ -92,7 +92,7 @@ const MapComponent: React.FC<PropType> = (props) => {
           <FaBagShopping
               size={26}
               className='mt-3 ml-3'
-              style={{ color: 'var(--secondary)' }}
+              style={{ color: 'var(--icon)' }}
           />
         </div>
         <div className='map-info-item'>
@@ -100,11 +100,11 @@ const MapComponent: React.FC<PropType> = (props) => {
           <FaEuroSign
               size={26}
               className='mt-3'
-              style={{ color: 'var(--secondary)' }}
+              style={{ color: 'var(--icon)' }}
           />
         </div>
       </div>
-      <div className='pb-4 pl-32 italic text-slate-600'>
+      <div className='description'>
         { description }
       </div>
       <div className="embla__viewport" ref={emblaRef}>

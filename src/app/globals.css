@@ -7,6 +7,8 @@
   --secondary: #9F00FF;
   --tertiary: #8A2BE2;
 
+  --icon: var(--secondary);
+
   --red: #E532F5;
   --pink: #D327F3;
   --dark-purple: #7D28CC;
@@ -16,15 +18,18 @@
 }
 
 .dark-theme{
-  --primary: #0B2447;
+  --primary: #411344;
+
+  --icon: #E532F5;
 
   --black: #FFFFFF;
+  --light-gray: #C1BEC4;
 
-  color: #A5D7E8;
+  color: white;
 
   .body{
     background-image: url('');
-    background-color: #19376D;
+    background-color: #5E206B;
   }
 
   a:hover {
