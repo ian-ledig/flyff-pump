@@ -5,7 +5,6 @@ import CollaborationComponent from './components/collaboration/collaboration';
 import MapComponent from './components/map/map';
 import FaqCardComponent from './components/faq-card/faq-card';
 import ContactComponent from './components/contact/contact';
-import { FaMapMarkerAlt } from 'react-icons/fa';
 import { EmblaOptionsType } from 'embla-carousel';
 import './home.css';
 
@@ -105,8 +104,8 @@ export default function Home() {
             />
           </div>
         </section>
-        <div className="image-transition"></div>
         <section id="contact" aria-labelledby="contact-title">
+          <div className="image-transition"></div>
           <ContactComponent />
         </section>
         <footer className="footer">
