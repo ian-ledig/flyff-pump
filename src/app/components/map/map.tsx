@@ -145,7 +145,7 @@ const MapComponent: React.FC<PropType> = (props) => {
                 aria-label={`Play YouTube video ${id}`}
               >
                 <img
-                  className="embla__slide__img object-cover w-full h-full scale-125"
+                  className="embla__slide__img object-cover w-full h-full scale-150"
                   src={`https://img.youtube.com/vi/${id}/hqdefault.jpg`}
                   alt={`Video thumbnail for ${id}`}
                 />
