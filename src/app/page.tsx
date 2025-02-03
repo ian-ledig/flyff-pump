@@ -26,7 +26,7 @@ export default function Home() {
           <div className="home-filter"></div>
           <iframe
             className="home-preview absolute top-0 left-0 w-full h-full object-cover"
-            src="https://www.youtube.com/embed/4-5Bgf-dQew?autoplay=1&mute=1&loop=1&playlist=4-5Bgf-dQew&controls=0&showinfo=0&modestbranding=1&vq=hd1080"
+            src="https://www.youtube.com/embed/4-5Bgf-dQew?autoplay=1&mute=1&loop=1&playlist=4-5Bgf-dQew&controls=0&showinfo=0&modestbranding=1&vq=hd1080?rel=0"
             title="YouTube video background"
             frameBorder="0"
             allow="autoplay; encrypted-media"
