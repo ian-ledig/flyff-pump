@@ -18,18 +18,18 @@
 }
 
 .dark-theme{
-  --primary: #411344;
-
-  --icon: #E532F5;
+  --primary: #282433;
+  
+  --icon: var(--secondary);
 
   --black: #FFFFFF;
-  --light-gray: #C1BEC4;
+  --light-gray: #B0B3B8;
 
   color: white;
 
   .body{
     background-image: url('');
-    background-color: #5E206B;
+    background-color: #1E1B26;
   }
 
   a:hover {
