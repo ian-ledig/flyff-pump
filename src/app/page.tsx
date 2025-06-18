@@ -33,21 +33,20 @@ export default function Home() {
             playsInline
           />
           <aside className="home-content">
-            <div className="font-thin">
-              I&rsquo;m Pacito2, I have been creating maps for the Flyff game
-              for over 10 years. I started with Beast software and now I&rsquo;m
-              using my own version of the WorldEditor software. I use many self
-              import assets to enhance my creations and offer a better version
-              of Flyff game.
+            <div className="home-text">
+              I’m Pacito2, I have been creating maps for the Flyff game for over
+              10 years. I started with Beast software and now I’m using my own
+              version of the WorldEditor software. I use many self import assets
+              to enhance my creations and offer a better version of Flyff game.
             </div>
-            <div className="font-thin">
+            <div className="home-logo">
               <Image
-                className="logo object-contain self-start"
+                className="logo"
                 src="/logo.webp"
                 alt="Logo"
                 loading="lazy"
                 width={80}
-                height={0}
+                height={80} // Ajout de la hauteur pour éviter un layout shift
               />
             </div>
           </aside>
