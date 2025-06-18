@@ -34,11 +34,10 @@ export default function Home() {
           />
           <aside className="home-content">
             <div className="home-text">
-              I’m Pacito2, I have been creating maps for the Flyff game
-              for over 10 years. I started with Beast software and now I’m
-              using my own version of the WorldEditor software. I use many self
-              import assets to enhance my creations and offer a better version
-              of Flyff game.
+              I’m Pacito2, I have been creating maps for the Flyff game for over
+              10 years. I started with Beast software and now I’m using my own
+              version of the WorldEditor software. I use many self import assets
+              to enhance my creations and offer a better version of Flyff game.
             </div>
             <div className="home-logo">
               <Image
