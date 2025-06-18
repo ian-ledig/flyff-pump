@@ -11,6 +11,7 @@ import {
 } from 'react-icons/io5';
 import ThemeSwitch from '../theme-switch/theme-switch';
 import './navigation-bar.css';
+import WebsiteButton from '../website-button/WebsiteButton';
 
 const NavigationBarComponent: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -116,6 +117,7 @@ const NavigationBarComponent: React.FC = () => {
           <div className="navigation-separator">|</div>
         </div>
         <div className="navigation-bar-links">
+          <WebsiteButton href="https://ian-ledig.com" />
           <ThemeSwitch />
           <a
             onClick={(e) => handleLinkClick(e, 'contact')}

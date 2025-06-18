@@ -23,6 +23,7 @@
     "scrollmagic-plugin-gsap": "^1.0.4"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^18",
